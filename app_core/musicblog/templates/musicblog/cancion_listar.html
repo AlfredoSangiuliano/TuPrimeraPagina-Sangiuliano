@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+{% extends 'musicblog/base.html' %}
+
+{% block content %}
+<h1 style="text-align: center; color: #4a4e69; font-size: 2.5em; margin-bottom: 20px;">CANCIONES</h1>
+<div style="text-align: center; margin-bottom: 20px;">
+  <a href="{% url 'musicblog:crear_cancion' %}" 
+     style="text-decoration: none; background-color: #4a4e69; color: #ffffff; padding: 10px 20px; border-radius: 5px; font-weight: bold; transition: background-color 0.3s ease;">
+    AGREGAR NUEVA CANCION
+  </a>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+  {% for cancion in canciones %}
+    <article style="border: 1px solid #ccc; border-radius: 10px; padding: 20px; max-width: 300px; background-color: #ffffff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+      <h2 style="color: #4a4e69; font-size: 1.5em; text-align: center;">{{ cancion.title }}</h2>
+      <p style="color: #555; margin: 10px 0;"><strong>Banda:</strong> {{ cancion.author }}</p>
+      <p style="color: #555; margin: 10px 0;"><strong>Año:</strong> {{ cancion.year }}</p>
+      <p style="color: #555; margin: 10px 0;">{{ cancion.description }}</p>
+      <div style="text-align: center; margin-top: 15px;">
+        <a href="{% url 'musicblog:actualizar_cancion' id=cancion.id %}" 
+           style="text-decoration: none; color: #4a4e69; font-weight: bold; margin-right: 10px; transition: color 0.3s ease;">
+          ACTUALIZAR
+        </a>
+        <a href="{% url 'musicblog:eliminar_cancion' id=cancion.id %}" 
+           style="text-decoration: none; color: #d9534f; font-weight: bold; transition: color 0.3s ease;">
+          ELIMINAR
+        </a>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+{% endblock content %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'musicblog/base.html' %}
+
+{% block content %}
+<h1 style="text-align: center; color: #4a4e69; font-size: 2.5em; margin-bottom: 30px;">CREAR NUEVO DISCO</h1>
+
+<form method="POST" style="max-width: 600px; margin: 0 auto; padding: 30px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    {% csrf_token %}
+    <div style="margin-bottom: 20px;">
+        {{ form.as_p }}
+    </div>
+    <div style="text-align: center;">
+        <input type="submit" value="Guardar" 
+               style="background-color: #4a4e69; color: #ffffff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;">
+        <input type="reset" value="Limpiar" 
+               style="background-color: #f1f1f1; color: #333; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-left: 15px; transition: background-color 0.3s ease;">
+    </div>
+</form>
+
+{% endblock content %}

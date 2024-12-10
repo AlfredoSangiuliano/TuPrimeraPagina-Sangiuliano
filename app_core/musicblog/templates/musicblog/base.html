@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MusicBlog</title>
+  <style>
+    /* General Styling */
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9; /* Fondo suave */
+      color: #333;
+    }
+
+    /* Header Styling */
+    .header {
+      background-color: #4a4e69; /* Color oscuro elegante */
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      margin: 0 20px;
+    }
+
+    .nav-item a {
+      color: #f9f9f9;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .nav-item a:hover {
+      color: #c9ada7; /* Color de hover */
+      transform: scale(1.1); /* Ligeramente más grande al pasar el ratón */
+    }
+
+    /* Main Content */
+    main {
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 1200px;
+      border-radius: 10px;
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #4a4e69;
+      color: #f9f9f9;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .nav-item {
+        margin: 0 10px;
+      }
+
+      .nav-item a {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 10px;
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="{% url 'musicblog:listar_bandas' %}">Bandas</a></li>
+        <li class="nav-item"><a href="{% url 'musicblog:listar_discos' %}">Discos</a></li>
+        <li class="nav-item"><a href="{% url 'musicblog:listar_canciones' %}">Canciones</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}
+    {% endblock content %}
+  </main>
+
+  <footer>
+    &copy; 2024 MusicBlog. Todos los derechos retorcidos.
+
+  </footer>
+  <footer>
+
+    Autor: Alfredo Sangiuliano - PythonFlex CoderHouse
+  </footer>
+</body>
+</html>

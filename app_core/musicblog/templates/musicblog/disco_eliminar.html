@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'musicblog/base.html' %}
+
+{% block content %}
+<h1 style="text-align: center; color: #d9534f; font-size: 2em; margin-bottom: 20px;">Eliminar Disco</h1>
+
+<form method="POST" style="max-width: 500px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    {% csrf_token %}
+    <p style="color: #555; font-size: 1.2em; margin-bottom: 15px; text-align: center;">¿Desea eliminar el siguiente Disco?</p>
+    <h2 style="color: #4a4e69; font-size: 1.5em; text-align: center;">{{ disco.title }}</h2>
+    <div style="text-align: center;">
+        <input type="submit" value="Eliminar" 
+               style="background-color: #d9534f; color: #ffffff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease;">
+    </div>
+</form>
+
+{% endblock content %}
